@@ -9,10 +9,10 @@ USER trifecta
 
 WORKDIR /home/trifecta
 
-RUN wget $TRIFECTA_URL/v$TRIFECTA_VERSION/trifecta_ui-$TRIFECTA_VERSION.zip && \
+RUN wget -O trifecta_ui-$TRIFECTA_VERSION.zip https://github.com/ldaniels528/trifecta/releases/download/v0.22.0rc8-0.10.1.0/trifecta-ui-0.22.0rc8b-0.10.1.0.zip  && \
 	unzip trifecta_ui-$TRIFECTA_VERSION.zip  && \
 	rm trifecta_ui-$TRIFECTA_VERSION.zip && \
-	ln -s trifecta_ui-$TRIFECTA_VERSION trifecta_ui && \
+	ln -s trifecta-ui-0.22.0rc8b-0.10.1.0 trifecta_ui && \
 	mkdir /home/trifecta/.trifecta
 
 COPY entrypoint.sh /home/trifecta/
